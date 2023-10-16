@@ -1,0 +1,97 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gestión de Trabajos Finales</title>
+    <link rel="icon" href="{% static 'img/unca_icon.png' %}" type="image/png">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
+    <!--
+    <title>{% block titulo %}{% endblock %}</title>
+    <link href="{% static 'css/estilos.css' %}" rel="stylesheet">
+    -->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+  </head>
+  <body>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+      crossorigin="anonymous"
+    ></script>
+    {% block style_main %}{% endblock %}
+    {% block header_content %}{% endblock %}
+
+
+
+
+    <section class="container mt-64">
+      {% block main_content %}
+      <h1 class="text-center mb-3">Gestión de Trabajos Finales</h1>
+      <p>
+        La aplicación web permite la gestión y seguimiento del estado de los
+        trabajos finales de graduación que realizan los alumnos para obtener el
+        título académico, de la carrera Ingeniería en Informática.
+      </p>
+      <p>
+        Se presenta un sistema automatizado y centralizado de la información de
+        los proyectos, del Informe del Trabajo Final y de las evaluaciones de
+        las dos instancias, así como todo el seguimiento del mismo.
+      </p>
+      <h3 class="mt-5 mb-3">
+        Lista de procesos de gestión y seguimiento de trabajos finales
+      </h3>
+      <div class="list-group">
+        <a class="list-group-item list-group-item-action">
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">Presentación del proyecto</h5>
+          </div>
+        </a>
+        <a class="list-group-item list-group-item-action">
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">
+              Evaluación formal realizado por la Comisión de Seguimiento de
+              Trabajo Final (CSTF)
+            </h5>
+          </div>
+        </a>
+        <a class="list-group-item list-group-item-action">
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">
+              Evaluación del proyecto por un tribunal evaluador
+            </h5>
+          </div>
+        </a>
+        <a class="list-group-item list-group-item-action">
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">
+              Presentación del Borrador del Informe de Trabajo Final (BITF)
+            </h5>
+          </div>
+        </a>
+        <a class="list-group-item list-group-item-action">
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">
+              Evaluación del Borrador del Informe de Trabajo Final
+            </h5>
+          </div>
+        </a>
+        <a class="list-group-item list-group-item-action">
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">Defensa del Trabajo Final</h5>
+          </div>
+        </a>
+      </div>
+      {% endblock %}
+    </section>
+
+
+
+    {% block footer_content %}{% endblock %}
+    </body>
+</html>

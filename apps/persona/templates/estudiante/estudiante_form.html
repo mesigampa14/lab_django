@@ -1,0 +1,139 @@
+{% extends "base/base.html" %}
+{% block header_content %}
+    {% include 'base/header.html' %}
+{% endblock %}
+{% block footer_content %}
+    {% include 'base/foot.html' %}
+{% endblock %}
+
+{% block main_content %}
+
+      <div class="titleBtn mb-3">
+        <h1>Agregar Nuevo Estudiante</h1>
+        <a
+          class="btn btn-outline-danger heightBtn"
+          href="/estudiante"
+        >
+          {% include "icon/back.html" %}
+          Volver
+        </a>
+      </div>
+
+  <form class="row" name="formulario" onsubmit="return validacion()" method="post">
+        <fieldset>
+            <legend>Datos Personales</legend>
+            <div class="campo">
+                <label for="{{ form_persona.dni.id_for_label }}">Número de DNI:</label>
+                {{form_persona.dni}}
+                {{form_persona.dni.errors}}
+            </div>
+            <div class="campo">
+                <label for="{{ form_persona.nombre_completo.id_for_label }}">Nombre Completo:</label>
+                {{form_persona.nombre_completo}}
+                {{form_persona.nombre_completo.errors}}
+            </div>
+            <div class="campo">
+                <label for="{{ form_persona.mail.id_for_label }}" >Correo Electrónico:</label>
+                {{form_persona.mail}}
+                {{form_persona.mail.errors}}
+            </div>
+            <div class="campo">
+                <label for="{{ form_persona.fecha_nacimiento.id_for_label }}" >Fecha de Nacimiento:</label>
+                {{form_persona.fecha_nacimiento}}
+                {{form_persona.fecha_nacimiento.errors}}
+            </div>
+            <div class="campo">
+                <label for="{{ form_persona.sexo.id_for_label }}">Sexo:</label>
+                {{form_persona.sexo}}
+                {{form_persona.sexo.errors}}
+            </div>
+            <div class="campo">
+                <label for="{{ form_persona.domicilio.id_for_label }}" >Domicilio:</label>
+                {{form_persona.domicilio}}
+                {{form_persona.domicilio.errors}}
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend>Matrícula</legend>
+            <div class="campo">
+                {{form_estudiante.matricula}}
+                <label for="{{ form_estudiante.matricula.id_for_label }}" >Matricula:</label>
+                {{form_estudiante.matricula.errors}}
+            </div>
+        </fieldset>
+    <!--<div class="mb-3 col-md-6">
+      <label for="{{ form_persona.dni.id_for_label }}" class="form-label">Matrícula</label>
+      <input
+        required
+        type="number"
+        class="form-control"
+        id="matricula"
+        aria-describedby="estudiante_matricula"
+      />
+    </div>
+    <div class="mb-3 col-md-6">
+      <label for="{{ form_persona.dni.id_for_label }}" class="form-label">DNI</label>
+      <input
+        required
+        type="number"
+        class="form-control"
+        id="dni"
+        aria-describedby="estudiante_dni"
+      />
+      {{form_persona.dni.errors}}
+    </div>
+    <div class="mb-3 col-md-12">
+      <label for="{{ form_persona.nombre_completo.id_for_label }}" class="form-label">Nombre</label>
+      <input
+        required
+        type="text"
+        class="form-control"
+        id="nombre_completo"
+        aria-describedby="estudiante_nombre_completo"
+      />
+    </div>
+    <div class="mb-3 col-md-6">
+      <label for="{{ form_persona.sexo.id_for_label }}" class="form-label">Sexo</label>
+      <select
+        class="form-select"
+        id="sexo"
+        aria-label="Default select example"
+        required
+      >
+        <option selected>Seleccionar sexo</option>
+        <option value="Femenino">Femenino</option>
+        <option value="Masculino">Masculino</option>
+      </select>
+    </div>
+    <div class="mb-3 col-md-6">
+      <label for="{{ form_persona.mail.id_for_label }}" class="form-label"
+        >Correo Electrónico</label
+      >
+      <input
+        type="email"
+        class="form-control"
+        id="mail"
+        required
+      />
+    </div>
+    <div class="mb-3 col-md-12">
+      <label for="{{ form_persona.domicilio.id_for_label }}" class="form-label">Domicilio</label>
+      <input
+        required
+        type="text"
+        class="form-control"
+        id="domicilio"
+        aria-describedby="estudiante_domicilio"
+      />
+    </div>-->
+
+    {% csrf_token %}
+    <div class="col-12">
+      <button type="submit" class="btn btn-success">
+        {% include "icon/save.html" %}
+        Guardar
+      </button>
+      <input type="submit" class="btn btn-success" value="Guardar">
+    </div>
+  </form>
+{% endblock %}

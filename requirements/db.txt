@@ -1,0 +1,9 @@
+Instalación PostGreSQL
+
+Contraseña: 123
+Puerto: 5432
+
+
+superuser
+usuario: emiliano
+password: 123

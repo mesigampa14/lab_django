@@ -1,0 +1,34 @@
+.mt-64{
+  margin-top: 5rem !important;
+}
+.titleBtn{
+  display: flex;
+  justify-content: space-between;
+}
+.heightBtn{
+  height: 38px;
+}
+header img{
+  height: 2rem;
+}
+.ml-1{
+  margin-left: 1rem;
+}
+
+@media screen and (max-width: 385px) {
+  .title_small {
+    display: block;
+  }
+  .title_large {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 386px) {
+  .title_small {
+    display: none;
+  }
+  .title_large {
+    display: block;
+  }
+}
