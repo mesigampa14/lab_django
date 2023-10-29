@@ -1,0 +1,36 @@
+{% extends "base/base.html" %}
+{% block footer_content %}
+  {% include 'base/foot.html' %}
+{% endblock %}
+{% block main_content %}
+<div class="titleBtn mb-3">
+  <h1>Iniciar Sesión</h1>
+</div>
+
+<form
+  class="row"
+  name="formulario"
+  onsubmit="return validacion()"
+  method="post"
+>
+  <div class="mb-3 col-md-6">
+    <label for="{{ form_docente.cuil.id_for_label }}" class="form-label">
+      Usuario:
+    </label>
+    {{form_docente.cuil}} {{form_docente.cuil.errors}}
+  </div>
+  <div class="mb-3 col-md-6">
+    <label for="{{ form_persona.dni.id_for_label }}" class="form-label">
+      Contraseña:
+    </label>
+    {{form_persona.dni}} {{form_persona.dni.errors}}
+  </div>
+
+  {% csrf_token %}
+  <div class="col-12">
+    <button type="submit" class="btn btn-success">
+      {% include "icon/save.html" %} Guardar
+    </button>
+  </div>
+</form>
+{% endblock %}

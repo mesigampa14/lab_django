@@ -9,19 +9,19 @@
 {% block main_content %}
 
       <div class="titleBtn mb-3">
-        <h1>Listado de Estudiantes</h1>
+        <h1>Listado de Docentes</h1>
         <a
           class="btn btn-outline-success heightBtn"
-          href="crear"
+          href="docente_crear"
         >
-          <span class="plus"></span>
+          {% include "icon/plus.html" %}
           Crear nuevo
         </a>
       </div>
       <table class="table table-hover">
         <thead>
           <tr>
-            <th scope="col">Matrícula</th>
+            <th scope="col">CUIL</th>
             <th scope="col">DNI</th>
             <th scope="col">Apellido y Nombre</th>
             <th scope="col">Correo Electrónico</th>
@@ -30,13 +30,23 @@
         </thead>
         <tbody>
 
-        {% if personas %}
-            {% for persona in personas %}
+        {% if docentes %}
+            {% for docente in docentes %}
                 <tr>
-                    <td><a href="{% url 'persona:persona_detalle' persona.id %}">{{ persona.nombre_completo }}</a></td>
-                    <td>{{ persona.dni }}</td>
-                    <td>{{ persona.get_sexo_display }}</td>
-                    <td>{{ persona.fecha_nacimiento|date:"SHORT_DATE_FORMAT" }}</td>
+                    <td>{{ docente.cuil }}</td>
+                    <td>{{ docente.persona.dni }}</td>
+                    <td>{{ docente.persona.apellido }}, {{ docente.persona.nombre }}</td>
+                    <td>{{ docente.persona.mail }}</td>
+                    <!--<td>{{ estudiante.persona.get_sexo_display }}</td>
+                    <td>{{ estudiante.fecha_nacimiento|date:"SHORT_DATE_FORMAT" }}</td>-->
+                    <td>
+                      <a
+                        class="btn btn-outline-primary heightBtn"
+                        href="docente_{{ docente.id }}"
+                      >
+                        {% include "icon/search.html" %}
+                      </a>
+                    </td>
                 </tr>
             {% endfor %}
         {% else %}

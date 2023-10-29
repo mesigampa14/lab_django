@@ -1,0 +1,70 @@
+{% extends "base/base.html" %}
+{% block header_content %}
+  {% include 'base/header.html' %}
+{% endblock %}
+{% block footer_content %}
+  {% include 'base/foot.html' %}
+{% endblock %}
+{% block main_content %}
+<div class="titleBtn mb-3">
+  <h1>Información del Estudiante</h1>
+  <a class="btn btn-outline-danger heightBtn" href="/persona/estudiante_lista">
+    {% include "icon/back.html" %} Volver
+  </a>
+</div>
+
+<form
+  class="row"
+  name="formulario"
+  onsubmit="return validacion()"
+  method="post"
+>
+  <div class="mb-3 col-md-6">
+    <label for="{{ form_estudiante.matricula.id_for_label }}" class="form-label"
+    >Matrícula: <strong>{{estudiante.matricula}}</strong></label
+    >
+  </div>
+  <div class="mb-3 col-md-6">
+    <label for="{{ form_persona.dni.id_for_label }}" class="form-label"
+      >DNI: <strong>{{estudiante.persona.dni}}</strong></label
+    >
+  </div>
+  <div class="mb-3 col-md-12">
+    <label
+      for="{{ form_persona.apellido.id_for_label }}"
+      class="form-label"
+      >Apellido y Nombre: <strong>{{estudiante.persona.apellido}}, {{estudiante.persona.nombre}}</strong></label
+    >
+  </div>
+  <div class="mb-3 col-md-6">
+    <label for="{{ form_persona.sexo.id_for_label }}" class="form-label"
+      >Sexo: <strong>{{estudiante.persona.sexo}}</strong></label
+    >
+  </div>
+  <div class="mb-3 col-md-6">
+    <label
+      for="{{ form_persona.fecha_nacimiento.id_for_label }}"
+      class="form-label"
+      >Fecha de Nacimiento: <strong>{{estudiante.persona.fecha_nacimiento}}</strong></label
+    >
+  </div>
+  <div class="mb-3 col-md-12">
+    <label for="{{ form_persona.mail.id_for_label }}" class="form-label"
+      >Correo Electrónico: <strong>{{estudiante.persona.mail}}</strong></label
+    >
+  </div>
+  <div class="mb-3 col-md-12">
+    <label for="{{ form_persona.domicilio.id_for_label }}" class="form-label"
+      >Domicilio: <strong>{{estudiante.persona.domicilio}}</strong></label
+    >
+  </div>
+
+  {% csrf_token %}
+  <div class="col-12">
+    <button type="submit" class="btn btn-success">
+      {% include "icon/save.html" %} Guardar
+    </button>
+    <!--<input type="submit" class="btn btn-success" value="Guardar">-->
+  </div>
+</form>
+{% endblock %}
