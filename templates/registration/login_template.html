@@ -1,6 +1,16 @@
+{% extends "base/base.html" %}
+{% block footer_content %}
+  {% include 'base/foot.html' %}
+{% endblock %}
+{% block main_content %}
+<div class="titleBtn mb-3">
+  <h1>Iniciar Sesión</h1>
+</div>
 <form method="post">
     {% csrf_token %}
     {{ form.dni.label_tag }} {{ form.dni }}
     {{ form.password.label_tag }} {{ form.password }}
     <button type="submit">Iniciar sesión</button>
 </form>
+
+{% endblock %}

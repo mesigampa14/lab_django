@@ -15,7 +15,7 @@ header img{
   margin-left: 1rem;
 }
 
-input[type="text"], input[type="number"], input[type="date"], input[type="email"]{
+input[type="text"], input[type="number"], input[type="password"], input[type="date"], input[type="email"]{
   display: block;
   width: 100%;
   padding: .375rem .75rem;
@@ -33,7 +33,7 @@ input[type="text"], input[type="number"], input[type="date"], input[type="email"
   transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 
-input[type="text"]:focus, input[type="number"]:focus, input[type="date"]:focus, input[type="email"]:focus{
+input[type="text"]:focus, input[type="number"]:focus, input[type="password"]:focus, input[type="date"]:focus, input[type="email"]:focus{
   color: var(--bs-body-color);
   background-color: var(--bs-body-bg);
   border-color: #86b7fe;
