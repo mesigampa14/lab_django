@@ -1,0 +1,56 @@
+{% extends "base/base.html" %}
+{% block header_content %}
+    {% include 'base/header.html' %}
+{% endblock %}
+{% block footer_content %}
+    {% include 'base/foot.html' %}
+{% endblock %}
+
+{% block main_content %}
+
+      <div class="titleBtn mb-3">
+        <h1>Listado de Proyectos</h1>
+        <a
+          class="btn btn-outline-success heightBtn"
+          href="proyecto_crear"
+        >
+          {% include "icon/plus.html" %}
+          Crear nuevo
+        </a>
+      </div>
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Numero</th>
+            <th scope="col">Titulo</th>
+            <th scope="col">Fecha Presentación</th>
+            <th scope="col">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+
+        {% if proyectos %}
+            {% for proyecto in proyectos %}
+                <tr>
+                    <td>{{ proyecto.id }}</td>
+                    <td>{{ proyecto.titulo }}</td>
+                    <td>{{ proyecto.fecha_presentacion|date:"SHORT_DATE_FORMAT" }}</td>
+                    <td>
+                      <a
+                        class="btn btn-outline-primary heightBtn"
+                        href="proyecto_{{ proyecto.id }}"
+                      >
+                        {% include "icon/search.html" %}
+                      </a>
+                    </td>
+                </tr>
+            {% endfor %}
+        {% else %}
+            <tr>
+                <td colspan="5" style="text-align: center">No se encontraron registros</td>
+            </tr>
+        {% endif %}
+
+        </tbody>
+      </table>
+{% endblock %}

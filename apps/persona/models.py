@@ -29,7 +29,7 @@ class Estudiante(models.Model):
     matricula = models.CharField(max_length=8, unique=True)
 
     def __str__(self):
-        return '{}'.format(self.matricula)
+        return '{} - {}'.format(self.matricula, self.persona)
 
 
 class Docente(models.Model):
@@ -37,4 +37,4 @@ class Docente(models.Model):
     cuil = models.CharField(max_length=13, unique=True)
 
     def __str__(self):
-        return '{}'.format(self.cuil)
+        return '{} - {}'.format(self.cuil, self.persona)

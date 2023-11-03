@@ -1,0 +1,64 @@
+{% extends "base/base.html" %}
+{% block header_content %}
+  {% include 'base/header.html' %}
+{% endblock %}
+{% block footer_content %}
+  {% include 'base/foot.html' %}
+{% endblock %}
+{% block main_content %}
+<div class="titleBtn mb-3">
+  <h1>Agregar Nuevo Proyecto</h1>
+  <a class="btn btn-outline-danger heightBtn" href="/proyecto">
+    {% include "icon/back.html" %} Volver
+  </a>
+</div>
+
+<form
+  class="row"
+  name="formulario"
+  onsubmit="return validacion()"
+  method="post"
+>
+  <div class="mb-3 col-md-6">
+    <label for="{{ form_proyecto.titulo.id_for_label }}" class="form-label">
+      Titulo
+    </label>
+    {{form_proyecto.titulo}} {{form_proyecto.titulo.errors}}
+  </div>
+  <div class="mb-3 col-md-12">
+    <label for="{{ form_proyecto.descripcion.id_for_label }}" class="form-label">
+      Descripción
+    </label>
+    {{form_proyecto.descripcion}} {{form_proyecto.descripcion.errors}}
+  </div>
+  <div class="mb-3 col-md-6">
+    <label for="{{ form_proyecto.estudiantes.id_for_label }}" class="form-label">
+      Estudiantes
+    </label>
+    {{form_proyecto.estudiantes}} {{form_proyecto.estudiantes.errors}}
+  </div>
+  <div class="mb-3 col-md-6">
+    <label for="{{ form_proyecto.docentes.id_for_label }}" class="form-label">
+      Docentes
+    </label>
+    {{form_proyecto.docentes}} {{form_proyecto.docentes.errors}}
+  </div>
+  <div class="mb-3 col-md-6">
+    <label for="{{ form_proyecto.fecha_presentacion.id_for_label }}" class="form-label">
+      Fecha de presentación
+    </label>
+    {{form_proyecto.fecha_presentacion}} {{form_proyecto.fecha_presentacion.errors}}
+  </div>
+  {{ form_estado.tipo_movimiento.id_for_label }}
+  {{ form_estado.tipo_movimiento.errors }}
+  <br>
+  {{ form_estado.tipo_movimiento.id_for_label }}
+
+  {% csrf_token %}
+  <div class="col-12">
+    <button type="submit" class="btn btn-success">
+      {% include "icon/save.html" %} Guardar
+    </button>
+  </div>
+</form>
+{% endblock %}

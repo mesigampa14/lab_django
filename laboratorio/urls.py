@@ -25,6 +25,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', TemplateView.as_view(template_name='base/home.html'), name='home'),
     path('persona/', include('apps.persona.urls', namespace='persona')),
+    path('proyecto/', include('proyecto.urls', namespace='proyecto')),
     path('login/', login_view, name='login'),
     path('logout/', LogoutView.as_view(), name='logout'),
 ]
