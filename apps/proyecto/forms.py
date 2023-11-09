@@ -1,9 +1,8 @@
 from django import forms
 from django.forms import DateInput
 
-from apps.persona.models import Persona, Estudiante, Docente
 from estado.models import Estado
-from proyecto.models import Proyecto
+from apps.proyecto.models import Proyecto
 
 
 class ProyectoForm(forms.ModelForm):

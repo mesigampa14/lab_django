@@ -25,10 +25,8 @@
       crossorigin="anonymous"
     ></script>
     {% block style_main %}{% endblock %}
-    {% block header_content %}{% endblock %}
 
-
-
+    {% include 'base/header.html' %}
 
     <section class="container mt-64">
       {% block main_content %}
@@ -92,6 +90,6 @@
 
 
 
-    {% block footer_content %}{% endblock %}
+    {% include 'base/foot.html' %}
     </body>
 </html>

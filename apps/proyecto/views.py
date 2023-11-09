@@ -1,9 +1,9 @@
 from django.contrib import messages
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect
 from django.urls import reverse
 
-from proyecto.forms import ProyectoForm, EstadoForm
-from proyecto.models import Proyecto
+from apps.proyecto.forms import ProyectoForm, EstadoForm
+from apps.proyecto.models import Proyecto
 
 
 def proyecto_lista(request):

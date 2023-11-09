@@ -1,8 +1,7 @@
 from django.db import models
 from django.utils import timezone
 
-from apps.persona.models import Estudiante, Docente
-from proyecto.models import Proyecto
+from apps.proyecto.models import Proyecto
 
 
 class Estado(models.Model):
