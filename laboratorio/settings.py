@@ -40,8 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'apps.persona',
     'estado',
-    'proyecto',
-    'usuarios',
+    'apps.proyecto',
 ]
 
 MIDDLEWARE = [
@@ -90,7 +89,8 @@ DATABASES = {
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
-AUTH_USER_MODEL = 'usuarios.Usuario'
+#AUTH_USER_MODEL = 'usuarios.Usuario'
+
 
 AUTH_PASSWORD_VALIDATORS = [
     {
