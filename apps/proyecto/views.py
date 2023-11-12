@@ -2,7 +2,8 @@ from django.contrib import messages
 from django.shortcuts import render, redirect
 from django.urls import reverse
 
-from apps.proyecto.forms import ProyectoForm, EstadoForm
+from apps.movimiento.forms import MovimientoForm
+from apps.proyecto.forms import ProyectoForm
 from apps.proyecto.models import Proyecto
 
 
@@ -18,12 +19,12 @@ def proyecto_crear(request):
         # https://docs.djangoproject.com/en/4.1/ref/forms/api/#prefixes-for-forms
 
         form_proyecto = ProyectoForm(request.POST, prefix='proyecto')
-        form_estado = EstadoForm(request.POST, prefix='estado')
+        form_movimiento = MovimientoForm(request.POST, prefix='estado')
 
-        if form_proyecto.is_valid() and form_estado.is_valid():
+        if form_proyecto.is_valid() and form_movimiento.is_valid():
             proyecto_instance = form_proyecto.save()
 
-            estado_instance = form_estado.save(commit=False)
+            estado_instance = form_movimiento.save(commit=False)
             estado_instance.proyecto = proyecto_instance
             estado_instance.tipo_movimiento = 'presenta_PTF'
             estado_instance.save()
@@ -34,9 +35,9 @@ def proyecto_crear(request):
 
     else:
         form_proyecto = ProyectoForm(prefix='proyecto')
-        form_estado = EstadoForm(request.POST, prefix='estado')
+        form_movimiento = MovimientoForm(request.POST, prefix='estado')
 
     return render(request, 'proyecto/form.html', {
         'form_proyecto': form_proyecto,
-        'form_estado': form_estado,
+        'form_estado': form_movimiento,
     })
